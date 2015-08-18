@@ -1,0 +1,23 @@
+canvas {
+    background: #8cf;
+    display: block;
+    /* margin: 0 auto; */
+}
+
+#score {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 4px;
+    padding: 5px;
+    background: #111;
+    color: #eee;
+}
+
+body {
+    margin: 0;
+}
+
+img {
+    display: none;
+}

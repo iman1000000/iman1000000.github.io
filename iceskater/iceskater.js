@@ -15,6 +15,10 @@ document.addEventListener('keyup', keyup);
 
 function keydown(ev) {
     keys[ev.keyCode] = true;
+    if([32, 37, 38, 39, 40].indexOf(ev.keyCode) > -1) {
+        ev.preventDefault();
+        console.log('HERE');
+    }
 }
 
 function keyup(ev) {

@@ -1,50 +1,6 @@
 var canvas = document.getElementById('c');
 var ctx = canvas.getContext('2d');
-
 var divScore = document.getElementById('score');
-
-// KEYBOARD
-var KEY_UP = 38;
-var KEY_DOWN = 40;
-var KEY_LEFT = 37;
-var KEY_RIGHT = 39;
-var KEY_SPACE = 32;
-var keys = [];
-document.addEventListener('keydown', keydown);
-document.addEventListener('keyup', keyup);
-
-function keydown(ev) {
-    keys[ev.keyCode] = true;
-    if([32, 37, 38, 39, 40].indexOf(ev.keyCode) > -1) {
-        ev.preventDefault();
-        console.log('HERE');
-    }
-}
-
-function keyup(ev) {
-    keys[ev.keyCode] = undefined;
-}
-
-
-
-// COLLISION
-function cirCol(cir1, cir2) {
-    var dx = Math.abs(cir1.x - cir2.x);
-    var dy = Math.abs(cir1.y - cir2.y);
-    var radius = cir1.radius + cir2.radius;
-    if (dx * dx + dy * dy <= radius * radius) {
-        return true;
-    }
-    return false;
-}
-
-function cirColList(cir, lst) {
-    for (var i = 0; i < lst.length; i++) {
-        if (cirCol(cir, lst[i])) return true;
-    }
-    return false;
-}
-
 
 var score = 0;
 var dead = false;

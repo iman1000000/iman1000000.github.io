@@ -1,0 +1,3 @@
+[submodule "cgol"]
+	path = cgol
+	url = https://github.com/iman1000000/cgol.git

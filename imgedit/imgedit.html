@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <title>Scripted Image Editor</title>
+    <style>
+.container {
+    max-width: 700px;
+    margin: 10px auto;
+    padding: 15px;
+    background: #eeeeee;
+    font-family: sans-serif;
+}
+
+.container * {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+#codeText {
+    width: 100%;
+    height: 18em;
+    border: none;
+}
+
+#c {
+    max-width: 100%;
+    display: block;
+    margin: auto;
+}
+
+#fileInput {
+    max-width: 100%;
+}
+
+#widthInput, #heightInput {
+    width: 5em;
+}
+    </style>
+</head>
+<body>
+    <canvas id=c width=0 height=0></canvas>
+    <div class=container>
+        <input id=fileInput type=file autocomplete=off>
+        <br>
+        <strong>Or</strong>
+        <br>
+        <button id=blankButton>Blank</button>
+        <input type=number id=widthInput value=100> x 
+        <input type=number id=heightInput value=100> pixels
+        <br><br>
+        <button id=runButton disabled autocomplete=off>Run</button>
+        <br>
+        <textarea id=codeText autocorrect=off autocapitalize=none spellcheck=false>
+// Enter javascript here
+
+image.forEach(function (pixel) {
+    var temp = pixel.r;
+    pixel.r = 255 - pixel.g;
+    pixel.g = 255 - pixel.b;
+    pixel.b = 255 - temp;
+});
+
+// Also available:
+// pixel.x, pixel.y
+// image.width, image.height
+// image.get(x, y) -> pixel
+        </textarea>
+    </div>
+
+    <script src=imgedit.out.js></script>
+</body>
+</html>
